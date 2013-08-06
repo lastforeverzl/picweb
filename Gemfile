@@ -38,3 +38,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem "paperclip", "~> 3.0"
+
+gem 'bcrypt-ruby', '3.0.1'
