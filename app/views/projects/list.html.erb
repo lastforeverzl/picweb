@@ -1,0 +1,10 @@
+<% @page_title = "Projects List" %>
+
+<div class="project list">
+	<h2>Projects</h2>
+	 <%= link_to(button_tag("Add New Subject"), {:action => 'new'}, :class => 'action new') %>
+
+	<% @projects.each do |project|%>
+	<div><%= link_to(image_submit_tag(project.avatar.url(:thumb)), {:action=>'show',:id=>project.id}) %></div>
+	<% end %>
+</div>
