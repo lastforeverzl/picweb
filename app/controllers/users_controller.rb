@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+	before_filter :signed_in_user, only:[:show]
+
 	def new
 		@user = User.new
 	end
@@ -10,7 +13,8 @@ class UsersController < ApplicationController
 	def create
     	@user = User.new(params[:user])
     	if @user.save
-      	# Handle a successful save.
+      		# Handle a successful save.
+      		sign_in @user
       		flash[:success] = "signup successful!"
       		redirect_to @user
     	else

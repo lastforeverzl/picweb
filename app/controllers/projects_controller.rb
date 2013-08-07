@@ -1,4 +1,8 @@
 class ProjectsController < ApplicationController
+
+	# before_filter :confirmed_logged_in
+	before_filter :signed_in_user
+
 	def index
 		list
 		render('list')
@@ -47,5 +51,6 @@ class ProjectsController < ApplicationController
 		Project.find(params[:id]).destroy
 		redirect_to(:action=>'list')
 	end
+
 
 end
