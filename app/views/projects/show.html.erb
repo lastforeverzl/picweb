@@ -1,31 +1,40 @@
 <% @page_title = "Projects List" %>
 
-<%= link_to(button_tag("Back to List"), {:action => 'list'}, :class => 'back-link') %>
+<%= link_to(button_tag("Back to List"), {:action => 'index'}, :class => 'back-link') %>
+
+
+
 <div class="project show">
   <h2>Show Project</h2>
+	<!--
+		<%= link_to(button_tag("update"),{:action=>'edit',:id=>@project.id},:class=>'action edit')%>
+	-->
 
-  <%= link_to(button_tag("update"),{:action=>'edit',:id=>@project.id},:class=>'action edit')%>
-  <%= link_to(button_tag("delete"),{:action=>'delete',:id=>@project.id},:class=>'action delte')%>
-  <table summary="Project detail view">
-    <tr>
-      <td><%= image_tag @project.avatar.url %></td>
-    </tr>
-    <tr>
-      <th>Name</th>
-      <td><%= @project.name %></td>
-    </tr>
-    <tr>
-      <th>Position</th>
-      <td><%= @project.position %></td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td><%= @project.description %></td>
-    </tr>
-    <tr>
-      <th>Created</th>
-      <td><%= @project.created_at %></td>
-    </tr>
-  </table>
+	<%= link_to button_tag("update"), edit_project_path(@project) %>
+	<%= link_to button_tag("delete"), @project, method: :delete, data: { confirm: "You sure?" } %>
+
+	  <table summary="Project detail view">
+	    <tr>
+	      <td><%= image_tag @project.avatar.url %></td>
+	    </tr>
+	    <tr>
+	      <th>Name</th>
+	      <td><%= @project.name %></td>
+	    </tr>
+	    <tr>
+	      <th>Position</th>
+	      <td><%= @project.position %></td>
+	    </tr>
+	    <tr>
+	      <th>Description</th>
+	      <td><%= @project.description %></td>
+	    </tr>
+	    <tr>
+	      <th>Created</th>
+	      <td><%= @project.created_at %></td>
+	    </tr>
+	    	<th>Updated</th>
+	    	<td><%= @project.updated_at%></td>
+	  </table>
   
 </div>

@@ -1,0 +1,9 @@
+<% provide(:title, 'All projects') %>
+<h1>All projects</h1>
+
+<ul class="projects">
+	<%= link_to(button_tag("Add New Photo"), {:action => 'new'}, :class => 'action new') %>
+	<% @projects.each do |project|%>
+		<div><%= link_to(image_submit_tag(project.avatar.url(:thumb)), {:action=>'show',:id=>project.id}) %></div>
+	<% end %>
+</ul>

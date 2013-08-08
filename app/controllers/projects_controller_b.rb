@@ -4,22 +4,27 @@ class ProjectsController < ApplicationController
 	before_filter :signed_in_user
 
 	def index
-		@projects = Project.order("projects.created_at ASC")
+		list
+		render('list')
 	end
 
-	def new
-		@project = Project.new
+	def list
+		@projects = Project.order("projects.created_at ASC")
 	end
 
 	def show
 		@project = Project.find(params[:id])
 	end
 
+	def new
+		@project = Project.new
+	end
+
 	def create
 		@project = Project.new(params[:project])
 		if @project.save
 			flash[:notice] = "Photo created."
-			redirect_to @project
+			redirect_to(:action=>'list')
 		else
 			render('new')
 		end
@@ -38,13 +43,13 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-	# def delete
-	# 	@project = Project.find(params[:id])
-	# end
+	def delete
+		@project = Project.find(params[:id])
+	end
 
 	def destroy
 		Project.find(params[:id]).destroy
-		redirect_to(:action=>'index')
+		redirect_to(:action=>'list')
 	end
 
 
