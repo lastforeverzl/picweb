@@ -7,6 +7,7 @@
   <div class="container-fluid">
     <div class="span6 offset4">
       <%= form_for(:project, :url => {:action => 'create'},:html => { :multipart => true }) do |f| %>
+        <%= render 'shared/error_messages_projects' %>
         <%= render(:partial => "form", :locals => {:f => f}) %>
         <%= f.file_field :avatar %>
       
@@ -16,7 +17,7 @@
     </div>
     <% end %>
     <div class="span1">
-       <%= link_to(submit_tag("cancel",class: "btn btn-primary"), {:action => 'index',:id=>@project.id}, :class => 'back-link') %>
+       <%= link_to(button_tag("cancel",class: "btn btn-primary"), {:action => 'index',:id=>@project.id}, :class => 'back-link') %>
     </div>
     
   </div>
