@@ -1,20 +1,23 @@
 <% @page_title = "Create Photo" %>
-
+<!--
 <%= link_to(button_tag("Back to List"), {:action => 'index'}, :class => 'back-link') %>
-
+-->
 <div class="project new">
-  <h2>Create Project</h2>
-
-  <%= form_for(:project, :url => {:action => 'create'},:html => { :multipart => true }) do |f| %>
-  
-    <%= render(:partial => "form", :locals => {:f => f}) %>
-    <tr>
-    <td><strong>Photo</strong></td>
-    <td><%= f.file_field :avatar %></td>
-  	</tr>
-    <div class="form-buttons">
-      <%= submit_tag("Create Photo") %>
+  <h2>Create Photos</h2>
+  <div class="container-fluid">
+    <div class="span6 offset4">
+      <%= form_for(:project, :url => {:action => 'create'},:html => { :multipart => true }) do |f| %>
+        <%= render(:partial => "form", :locals => {:f => f}) %>
+        <%= f.file_field :avatar %>
+      
+    </div>
+    <div class="span offset4">
+      <%= submit_tag("Create Photo",class: "btn btn-primary") %>
+    </div>
+    <% end %>
+    <div class="span1">
+       <%= link_to(submit_tag("cancel",class: "btn btn-primary"), {:action => 'index',:id=>@project.id}, :class => 'back-link') %>
     </div>
     
-  <% end %>
+  </div>
 </div>

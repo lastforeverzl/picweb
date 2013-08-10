@@ -1,7 +1,7 @@
 <% @page_title = "Projects List" %>
-
-<%= link_to(button_tag("Back to List"), {:action => 'index'}, :class => 'back-link') %>
-
+<!--
+	<%= link_to(button_tag("Back to List"), {:action => 'index'}, :class => 'back-link') %>
+-->
 
 
 <div class="project show">
@@ -9,14 +9,18 @@
 	<!--
 		<%= link_to(button_tag("update"),{:action=>'edit',:id=>@project.id},:class=>'action edit')%>
 	-->
-
-	<%= link_to button_tag("update"), edit_project_path(@project) %>
-	<%= link_to button_tag("delete"), @project, method: :delete, data: { confirm: "You sure?" } %>
-
-	  <table summary="Project detail view">
-	    <tr>
-	      <td><%= image_tag @project.avatar.url %></td>
-	    </tr>
+	<div>
+		<%= link_to button_tag("update",class: "btn btn-primary"), edit_project_path(@project) %>
+		<% if current_user.admin? %>
+			<%= link_to button_tag("delete",class: "btn btn-primary"), @project, method: :delete, data: { confirm: "You sure?" } %>
+		<% end %>
+	</div>
+	<p></p>
+	<div>
+		<%= image_tag @project.avatar.url %>
+	</div>
+	<p></p>
+	  <table class="table table-hover">
 	    <tr>
 	      <th>Name</th>
 	      <td><%= @project.name %></td>

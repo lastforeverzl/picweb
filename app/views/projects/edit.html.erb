@@ -1,14 +1,16 @@
 <div class="project edit">
 	<h2>Update Subject</h2>
-
-	<%= form_for(@project) do |f| %>
-    	<div><%= image_tag @project.avatar.url %></div>
-            <%= render(:partial => "form", :locals => {:f => f}) %>
-    	<div class="form-buttons">
-            <%= submit_tag("Update Photo") %>
+    <div class="container-fluid">
+        <div class="span6">	       
+            <%= image_tag @project.avatar.url %>
         </div>
-    <% end %>
-    <div>
-        <%= link_to(button_tag("cancel"), {:action => 'show',:id=>@project.id}, :class => 'back-link') %>
+        <div class="span5">
+            <%= form_for(@project) do |f| %>
+                <%= render(:partial => "form", :locals => {:f => f}) %>
+            <% end %>
+                    <%= submit_tag("Update Photo",class: "btn btn-primary") %>         
+            <%= link_to(button_tag("cancel",class: "btn btn-primary"), {:action => 'show',:id=>@project.id}, :class => 'back-link') %>
+        </div>
+        
     </div>
 </div>

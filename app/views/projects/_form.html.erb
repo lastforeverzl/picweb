@@ -1,21 +1,15 @@
+    <%= f.label(:name) %>
+    <%= f.text_field(:name) %>
 
-<table summary="Object form fields">
-  <tr>
-    <th><%= f.label(:name) %></th>
-    <td><%= f.text_field(:name) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:position) %></th>
-    <td><%= f.text_field(:position) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:description) %></th>
-    <td><%= f.text_area(:description) %></td>
-  </tr>
+    <%= f.label(:position) %>
+    <%= f.text_field(:position) %>
+
+    <%= f.label(:description) %>
+    <%= f.text_area :description , rows:5%>
+
   <!--
   <tr>
     <td><strong>Photo</strong></td>
     <td><%= f.file_field :avatar %></td>
   </tr>
   -->
-</table>
