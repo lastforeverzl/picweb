@@ -4,8 +4,26 @@
     <section>
       <h1>
         <%= gravatar_for(@user,{:size=>50}) %>
-        <%= @user.username %>
       </h1>
+      <table class="table table-hover">
+      	<tr>
+	      <th>Username</th>
+	      <td><%= @user.username %></td>
+	    </tr>
+	    <tr>
+	      <th>First_Name</th>
+	      <td><%= @user.first_name %></td>
+	    </tr>
+	    <tr>
+	      <th>Last_Name</th>
+	      <td><%= @user.last_name %></td>
+	    </tr>
+
+	    <tr>
+	      <th>Email</th>
+	      <td><%= @user.email %></td>
+	    </tr>
+	  </table>
     </section>
   </aside>
 </div>

@@ -1,0 +1,14 @@
+    <tr>
+      <%= div_for comment do %>
+        <td>
+          <a href="<%= user_path(comment.user) %>">
+            <%= gravatar_for(comment.user,{:size=>50}) %>
+          </a>
+            <%= link_to comment.user.username, comment.user %>
+        </td>
+        <td>
+          <%= comment.content %>
+        </td>
+      <% end %>
+    </tr>
+

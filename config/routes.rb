@@ -6,9 +6,12 @@ Picweb::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
 
 
-  resources :projects
+  resources :projects do
+      resources :comments
+  end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  # resources :comments
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
