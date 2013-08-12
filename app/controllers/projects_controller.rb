@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(params[:project])
+		@project.user_id = current_user.id
 		if @project.save
 			flash[:notice] = "Photo created."
 			redirect_to @project

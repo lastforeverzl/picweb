@@ -1,9 +1,10 @@
 class Project < ActiveRecord::Base
 	# attr_accessible :title, :body
-	attr_accessible :name, :position,:description
+	attr_accessible :name, :position,:description, :user_id
 	attr_accessible :avatar
 
 	has_many :comments, :dependent => :destroy
+	belongs_to :users
 
 	# 	store pic in local folder
 	# has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },

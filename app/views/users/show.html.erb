@@ -1,6 +1,5 @@
 <% provide(:title, @user.username) %>
 <div class="row">
-  <aside class="span4">
     <section>
       <h1>
         <%= gravatar_for(@user,{:size=>50}) %>
@@ -25,5 +24,9 @@
 	    </tr>
 	  </table>
     </section>
-  </aside>
+    <div>
+	  	<% @user.projects.each do |project| %>
+		    <%= link_to(image_submit_tag(project.avatar.url(:thumb),:class=>"img-circle"), project_path(:id=>project.id)) %>
+		<% end %>
+	</div>
 </div>
