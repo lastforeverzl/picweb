@@ -7,9 +7,12 @@
         <div class="span5">
             <%= form_for(@project) do |f| %>
                 <%= render(:partial => "form", :locals => {:f => f}) %>
+                <p><%= submit_tag("Update Photo",class: "btn btn-primary") %></p>
+                <p><%= link_to(button_tag("cancel",class: "btn btn-primary"), 
+                        {:action => 'show',:id=>@project.id}, :class => 'back-link') %>
+                </p>
             <% end %>
-                    <%= submit_tag("Update Photo",class: "btn btn-primary") %>         
-            <%= link_to(button_tag("cancel",class: "btn btn-primary"), {:action => 'show',:id=>@project.id}, :class => 'back-link') %>
+                             
         </div>
         
     </div>
