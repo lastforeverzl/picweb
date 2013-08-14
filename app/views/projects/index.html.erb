@@ -6,14 +6,16 @@
 		<%= link_to(button_tag("Add New Photo",class: "btn btn-primary"), {:action => 'new'}, :class => 'action new') %>
 	</p>
 
-	<ul class="thumbnails">
-	<% @projects.each do |project|%>
-		<li class="span1.5">
-			
-				<%= link_to(image_submit_tag(project.avatar.url(:thumb),:class=>"img-circle"), {:action=>'show',:id=>project.id}) %>
-			
-		</li>
-	<% end %>
-	</ul>
+	<div id="wrap">
+		<div id="gallery">
+			<% @projects.each do |project|%>
+				<li id="photo_avatar">
 
+						<%= link_to(image_submit_tag(project.avatar.url(:thumb)), {:action=>'show',:id=>project.id}) %>
+
+					<div><%= project.position%></div>
+				</li>
+			<% end %>
+		</div>
+	</div>
 </div>

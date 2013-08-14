@@ -13,7 +13,7 @@ class Project < ActiveRecord::Base
 
 	has_attached_file :avatar,
 	    :storage => :dropbox,
-	    :styles => { :thumb => "100x100>" },
+	    :styles => { :thumb => "150x150!",:medium => "300x300!" },
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
 	    :path => ":style/:id_:filename"
 
