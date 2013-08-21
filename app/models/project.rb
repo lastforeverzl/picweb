@@ -13,10 +13,11 @@ class Project < ActiveRecord::Base
 
 	has_attached_file :avatar,
 	    :storage => :dropbox,
-	    :styles => { :thumb => "150x150!",:medium => "300x300!" },
+	    :styles => { :thumb => "150x150!" },
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
 	    :path => ":style/:id_:filename"
 
 	validates_attachment :avatar, :presence => true,
-  		:size => { :in => 0..2.megabytes }
+  		:size => { :in => 0..5.megabytes }
+
 end
